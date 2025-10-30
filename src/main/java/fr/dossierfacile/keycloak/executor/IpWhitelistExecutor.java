@@ -8,6 +8,7 @@ import org.keycloak.representations.idm.ClientPolicyExecutorConfigurationReprese
 import org.keycloak.services.clientpolicy.ClientPolicyContext;
 import org.keycloak.services.clientpolicy.ClientPolicyException;
 import org.keycloak.services.clientpolicy.context.ServiceAccountTokenRequestContext;
+import org.keycloak.services.clientpolicy.context.TokenRequestContext;
 import org.keycloak.services.clientpolicy.executor.ClientPolicyExecutorProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,9 +30,15 @@ public class IpWhitelistExecutor implements ClientPolicyExecutorProvider<ClientP
     public void executeOnEvent(ClientPolicyContext context) throws ClientPolicyException {
 
         logger.info("IpWhitelistExecutor called");
+
+        boolean isTokenEndpointContext =
+                context instanceof TokenRequestContext
+                || context instanceof ServiceAccountTokenRequestContext;
+
         // Ne traiter que les jetons service account (client_credentials)
-        if (!(context instanceof ServiceAccountTokenRequestContext)) {
-            return; // ignore autres événements
+        if (! isTokenEndpointContext) {
+            logger.info("Ignoring non-token endpoint context: {}", context.getClass().getSimpleName());
+            return;
         }
 
         KeycloakContext kc = session.getContext();

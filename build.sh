@@ -35,7 +35,7 @@ echo "📦 Creating JAR package..."
 mvn package
 
 # Check if JAR was created
-JAR_FILE="target/keycloak-client-ip-restriction-1.0.0.jar"
+JAR_FILE="target/keycloak-client-ip-restriction-1.0.1.jar"
 if [ -f "$JAR_FILE" ]; then
     echo "✅ Build successful! JAR created: $JAR_FILE"
     echo "📊 JAR size: $(du -h $JAR_FILE | cut -f1)"

@@ -7,7 +7,7 @@
 
     <groupId>fr.dossierfacile</groupId>
     <artifactId>keycloak-client-ip-restriction</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>Keycloak Client IP Restriction</name>
