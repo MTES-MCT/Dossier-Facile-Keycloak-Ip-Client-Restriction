@@ -17,6 +17,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <keycloak.version>26.5.3</keycloak.version>
     </properties>
 
     <dependencies>
@@ -24,25 +25,25 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-core</artifactId>
-            <version>22.0.5</version>
+            <version>${keycloak.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-server-spi</artifactId>
-            <version>22.0.5</version>
+            <version>${keycloak.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-server-spi-private</artifactId>
-            <version>22.0.5</version>
+            <version>${keycloak.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-services</artifactId>
-            <version>22.0.5</version>
+            <version>${keycloak.version}</version>
             <scope>provided</scope>
         </dependency>
         
